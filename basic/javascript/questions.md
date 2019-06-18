@@ -59,3 +59,36 @@ shape.perimeter();
 - D: `NaN` and `63`
 
 [**Answer**](answers.md#3-whats-the-output)
+
+## 4. What's the output?
+
+```js
++true;
+!'Lydia';
+```
+
+- A: `1` and `false`
+- B: `false` and `NaN`
+- C: `false` and `false`
+
+[**Answer**](answers.md#4-whats-the-output)
+
+## 5. Which one is true?
+
+```js
+const bird = {
+  size: 'small'
+};
+
+const mouse = {
+  name: 'Mickey',
+  small: true
+};
+```
+
+- A: `mouse.bird.size` is not valid
+- B: `mouse[bird.size]` is not valid
+- C: `mouse[bird["size"]]` is not valid
+- D: All of them are valid
+
+[**Answer**](answers.md#5-which-one-is-true)
