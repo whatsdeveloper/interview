@@ -175,3 +175,97 @@ JavaScript 是一种**动态类型语言**：我们不指定某些变量的类�
 **答案: C**
 
 使用 `"use strict"`，你可以确保不会意外地声明全局变量。我们从来没有声明变量 `age`，因为我们使用 `"use strict"`，它将抛出一个引用错误。如果我们不使用 `"use strict"`，它就会工作，因为属性 `age` 会被添加到全局对象中了。
+
+## 21. What's value of `sum`?
+
+**答案: A**
+
+代码以字符串形式传递进来，`eval` 对其求值。如果它是一个表达式，就像本例中那样，它对表达式求值。表达式是 `10 * 10 + 5`。这将返回数字 `105`。
+
+## 22. How long is cool_secret accessible?
+
+**答案: B**
+
+关闭 **tab 标签页** 后，`sessionStorage` 存储的数据才会删除。
+
+如果使用 `localStorage`，那么数据将永远在那里，除非调用了 `localStorage.clear()`。
+
+## 23. What's the output?
+
+**答案: B**
+
+使用 `var` 关键字，你可以用相同的名称声明多个变量。然后变量将保存最新的值。
+
+你不能使用 `let` 或 `const` 来实现这一点，因为它们是块作用域的。
+
+## 24. What's the output?
+
+**答案: C**
+
+所有对象的键（不包括 Symbol）在底层都是字符串，即使你自己没有将其作为字符串输入。这就是为什么 `obj.hasOwnProperty('1')` 也返回 `true`。
+
+对于集合，它不是这样工作的。在我们的集合中没有 `'1'`：`set.has('1')` 返回 `false`。它有数字类型为 `1`，`set.has(1)` 返回 `true`。
+
+## 25. What's the output?
+
+**答案: C**
+
+如果你有两个名称相同的键，则键会被替换掉。它仍然位于第一个键出现的位置，但是值是最后出现那个键的值。
+
+## 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+
+**答案: A**
+
+基本执行上下文是全局执行上下文：它是代码中随处可访问的内容。
+
+## 27. What's the output?
+
+**答案: C**
+
+如果某个条件返回 `true`，则 `continue` 语句跳过本次迭代。
+
+## 28. What's the output?
+
+**答案: A**
+
+`String` 是内置的构造函数，我们可以向它添加属性。我只是在它的原型中添加了一个方法。基本类型字符串被自动转换为字符串对象，由字符串原型函数生成。因此，所有 string(string 对象)都可以访问该方法！
+
+## 29. What's the output?
+
+**答案: B**
+
+对象的键被自动转换为字符串。我们试图将一个对象 `b` 设置为对象 `a` 的键，且相应的值为 `123`。
+
+然而，当字符串化一个对象时，它会变成 `"[object Object]"`。因此这里说的是，`a["[object Object]"] = 123`。然后，我们再一次做了同样的事情，`c` 是另外一个对象，这里也有隐式字符串化，于是，`a["[object Object]"] = 456`。
+
+然后，我们打印 `a[b]`，也就是 `a["[object Object]"]`。之前刚设置为 `456`，因此返回的是 `456`。
+
+## 30. What's the output?
+
+**答案: B**
+
+我们有一个 `setTimeout` 函数，并首先调用它。然而，它是最后打印日志的。
+
+这是因为在浏览器中，我们不仅有运行时引擎，还有一个叫做 `WebAPI` 的东西。`WebAPI` 提供了 `setTimeout` 函数，也包含其他的，例如 DOM。
+
+将 _callback_ 推送到 WebAPI 后，`setTimeout` 函数本身(但不是回调！)将从栈中弹出。
+
+![](img/30-1.png)
+
+现在，`foo` 被调用，打印 `"First"`。
+
+![](img/30-2.png)
+
+`foo` 从栈中弹出，`baz` 被调用. 打印 `"Third"`。
+
+![](img/30-3.png)
+
+WebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名为 _queue_ 的地方。
+
+![](img/30-4.png)
+
+这就是事件循环开始工作的地方。一个**事件循环**查看栈和任务队列。如果栈是空的，它接受队列上的第一个元素并将其推入栈。
+
+![](img/30-5.png)
+
+`bar` 被调用，打印 `"Second"`，然后它被栈弹出。

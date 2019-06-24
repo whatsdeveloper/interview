@@ -359,3 +359,160 @@ getAge();
 - D: `TypeError`
 
 [**Answer**](answers.md#20-whats-the-output)
+
+## 21. What's value of `sum`?
+
+```js
+const sum = eval('10*10+5');
+```
+
+- A: `105`
+- B: `"105"`
+- C: `TypeError`
+- D: `"10*10+5"`
+
+[**Answer**](answers.md#21-whats-value-of-sum)
+
+## 22. How long is cool_secret accessible?
+
+```js
+sessionStorage.setItem('cool_secret', 123);
+```
+
+- A: Forever, the data doesn't get lost.
+- B: When the user closes the tab.
+- C: When the user closes the entire browser, not only the tab.
+- D: When the user shuts off their computer.
+
+[**Answer**](answers.md#22-how-long-is-cool_secret-accessible)
+
+## 23. What's the output?
+
+```js
+var num = 8;
+var num = 10;
+
+console.log(num);
+```
+
+- A: `8`
+- B: `10`
+- C: `SyntaxError`
+- D: `ReferenceError`
+
+[**Answer**](answers.md#23-whats-the-output)
+
+## 24. What's the output?
+
+```js
+const obj = { 1: 'a', 2: 'b', 3: 'c' };
+const set = new Set([1, 2, 3, 4, 5]);
+
+obj.hasOwnProperty('1');
+obj.hasOwnProperty(1);
+set.has('1');
+set.has(1);
+```
+
+- A: `false` `true` `false` `true`
+- B: `false` `true` `true` `true`
+- C: `true` `true` `false` `true`
+- D: `true` `true` `true` `true`
+
+[**Answer**](answers.md#24-whats-the-output)
+
+## 25. What's the output?
+
+```js
+const obj = { a: 'one', b: 'two', a: 'three' };
+console.log(obj);
+```
+
+- A: `{ a: "one", b: "two" }`
+- B: `{ b: "two", a: "three" }`
+- C: `{ a: "three", b: "two" }`
+- D: `SyntaxError`
+
+[**Answer**](answers.md#25-whats-the-output)
+
+## 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+
+- A: true
+- B: false
+- C: it depends
+
+[**Answer**](answers.md#26-the-javascript-global-execution-context-creates-two-things-for-you-the-global-object-and-the-this-keyword)
+
+## 27. What's the output?
+
+```js
+for (let i = 1; i < 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}
+```
+
+- A: `1` `2`
+- B: `1` `2` `3`
+- C: `1` `2` `4`
+- D: `1` `3` `4`
+
+[**Answer**](answers.md#27-whats-the-output)
+
+## 28. What's the output?
+
+```js
+String.prototype.giveLydiaPizza = () => {
+  return 'Just give Lydia pizza already!';
+};
+
+const name = 'Lydia';
+
+name.giveLydiaPizza();
+```
+
+- A: `"Just give Lydia pizza already!"`
+- B: `TypeError: not a function`
+- C: `SyntaxError`
+- D: `undefined`
+
+[**Answer**](answers.md#28-whats-the-output)
+
+## 29. What's the output?
+
+```js
+const a = {};
+const b = { key: 'b' };
+const c = { key: 'c' };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]);
+```
+
+- A: `123`
+- B: `456`
+- C: `undefined`
+- D: `ReferenceError`
+
+[**Answer**](answers.md#29-whats-the-output)
+
+## 30. What's the output?
+
+```js
+const foo = () => console.log('First');
+const bar = () => setTimeout(() => console.log('Second'));
+const baz = () => console.log('Third');
+
+bar();
+foo();
+baz();
+```
+
+- A: `First` `Second` `Third`
+- B: `First` `Third` `Second`
+- C: `Second` `First` `Third`
+- D: `Second` `Third` `First`
+
+[**Answer**](answers.md#30-whats-the-output)
