@@ -516,3 +516,172 @@ baz();
 - D: `Second` `Third` `First`
 
 [**Answer**](answers.md#30-whats-the-output)
+
+## 31. What is the event.target when clicking the button?
+
+```html
+<div onclick="console.log('first div')">
+  <div onclick="console.log('second div')">
+    <button onclick="console.log('button')">
+      Click!
+    </button>
+  </div>
+</div>
+```
+
+- A: Outer `div`
+- B: Inner `div`
+- C: `button`
+- D: An array of all nested elements.
+
+[**Answer**](answers.md#31-what-is-the-eventtarget-when-clicking-the-button)
+
+## 32. When you click the paragraph, what's the logged output?
+
+```html
+<div onclick="console.log('div')">
+  <p onclick="console.log('p')">
+    Click here!
+  </p>
+</div>
+```
+
+- A: `p` `div`
+- B: `div` `p`
+- C: `p`
+- D: `div`
+
+[**Answer**](answers.md#32-when-you-click-the-paragraph-whats-the-logged-output)
+
+## 33. What's the output?
+
+```js
+const person = { name: 'Lydia' };
+
+function sayHi(age) {
+  console.log(`${this.name} is ${age}`);
+}
+
+sayHi.call(person, 21);
+sayHi.bind(person, 21);
+```
+
+- A: `undefined is 21` `Lydia is 21`
+- B: `function` `function`
+- C: `Lydia is 21` `Lydia is 21`
+- D: `Lydia is 21` `function`
+
+[**Answer**](answers.md#33-whats-the-output)
+
+## 34. What's the output?
+
+```js
+function sayHi() {
+  return (() => 0)();
+}
+
+console.log(typeof sayHi());
+```
+
+- A: `"object"`
+- B: `"number"`
+- C: `"function"`
+- D: `"undefined"`
+
+[**Answer**](answers.md#34-whats-the-output)
+
+## 35. Which of these values are falsy?
+
+```js
+0;
+new Number(0);
+('');
+(' ');
+new Boolean(false);
+undefined;
+```
+
+- A: `0`, `''`, `undefined`
+- B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
+- C: `0`, `''`, `new Boolean(false)`, `undefined`
+- D: All of them are falsy
+
+[**Answer**](answers.md#35-which-of-these-values-are-falsy)
+
+## 36. What's the output?
+
+```js
+console.log(typeof typeof 1);
+```
+
+- A: `"number"`
+- B: `"string"`
+- C: `"object"`
+- D: `"undefined"`
+
+[**Answer**](answers.md#36-whats-the-output)
+
+## 37. What's the output?
+
+```js
+const numbers = [1, 2, 3];
+numbers[10] = 11;
+console.log(numbers);
+```
+
+- A: `[1, 2, 3, 7 x null, 11]`
+- B: `[1, 2, 3, 11]`
+- C: `[1, 2, 3, 7 x empty, 11]`
+- D: `SyntaxError`
+
+[**Answer**](answers.md#37-whats-the-output)
+
+## 38. What's the output?
+
+```js
+(() => {
+  let x, y;
+  try {
+    throw new Error();
+  } catch (x) {
+    (x = 1), (y = 2);
+    console.log(x);
+  }
+  console.log(x);
+  console.log(y);
+})();
+```
+
+- A: `1` `undefined` `2`
+- B: `undefined` `undefined` `undefined`
+- C: `1` `1` `2`
+- D: `1` `undefined` `undefined`
+
+[**Answer**](answers.md#38-whats-the-output)
+
+## 39. Everything in JavaScript is either a...
+
+- A: primitive or object
+- B: function or object
+- C: trick question! only objects
+- D: number or object
+
+[**Answer**](answers.md#39-everything-in-javascript-is-either-a)
+
+## 40. What's the output?
+
+```js
+[[0, 1], [2, 3]].reduce(
+  (acc, cur) => {
+    return acc.concat(cur);
+  },
+  [1, 2]
+);
+```
+
+- A: `[0, 1, 2, 3, 1, 2]`
+- B: `[6, 1, 2]`
+- C: `[1, 2, 0, 1, 2, 3]`
+- D: `[1, 2, 6]`
+
+[**Answer**](answers.md#40-whats-the-output)

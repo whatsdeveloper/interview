@@ -269,3 +269,88 @@ WebAPI 不能随时向栈内添加内容。相反，它将回调函数推到名�
 ![](img/30-5.png)
 
 `bar` 被调用，打印 `"Second"`，然后它被栈弹出。
+
+## 31. What is the event.target when clicking the button?
+
+**答案: C**
+
+导致事件的最深嵌套的元素是事件的 target。你可以通过 `event.stopPropagation` 来停止冒泡。
+
+## 32. When you click the paragraph, what's the logged output?
+
+**答案: A**
+
+如果我们点击 `p`，我们会看到两个日志：`p` 和 `div`。在事件传播期间，有三个阶段：捕获、目标和冒泡。默认情况下，事件处理程序在冒泡阶段执行（除非将 `useCapture` 设置为 `true`）。它从嵌套最深的元素向外传播。
+
+## 33. What's the output?
+
+**答案: D**
+
+使用这两种方法，我们都可以传递我们希望 `this` 关键字引用的对象。但是，`.call` 是**立即执行**的。
+
+`.bind` 返回函数的**副本**，但带有绑定上下文！它不是立即执行的。
+
+## 34. What's the output?
+
+**答案: B**
+
+`sayHi` 方法返回的是立即执行函数(IIFE)的返回值.此立即执行函数的返回值是 `0`， 类型是 `number`
+
+参考：只有 7 种内置类型：`null`，`undefined`，`boolean`，`number`，`string`，`object` 和 `symbol`。 `function` 不是一种类型，函数是对象，它的类型是`object`。
+
+## 35. Which of these values are falsy?
+
+**答案: A**
+
+只有 6 种 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 值:
+
+- `undefined`
+- `null`
+- `NaN`
+- `0`
+- `''` (empty string)
+- `false`
+
+`Function` 构造函数, 比如 `new Number` 和 `new Boolean`，是 [truthy](https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy)。
+
+## 36. What's the output?
+
+**答案: B**
+
+`typeof 1` 返回 `"number"`。
+`typeof "number"` 返回 `"string"`。
+
+## 37. What's the output?
+
+**答案: C**
+
+当你为数组设置超过数组长度的值的时候， JavaScript 会创建名为 "empty slots" 的东西。它们的值实际上是 `undefined`。你会看到以下场景：
+
+`[1, 2, 3, 7 x empty, 11]`
+
+这取决于你的运行环境（每个浏览器，以及 node 环境，都有可能不同）
+
+## 38. What's the output?
+
+**答案: A**
+
+`catch` 代码块接收参数 `x`。当我们传递参数时，这与之前定义的变量 `x` 不同 。这个 `x` 是属于 `catch` 块级作用域的。
+
+然后，我们将块级作用域中的变量赋值为 `1`，同时也设置了变量 `y` 的值。现在，我们打印块级作用域中的变量 `x`，值为 `1`。
+
+`catch` 块之外的变量 `x` 的值仍为 `undefined`， `y` 的值为 `2`。当我们在 `catch` 块之外执行 `console.log(x)` 时，返回 `undefined`，`y` 返回 `2`。
+
+## 39. Everything in JavaScript is either a...
+
+**答案: A**
+
+JavaScript 只有基本类型和对象。
+
+基本类型包括 `boolean`, `null`, `undefined`, `bigint`, `number`, `string`, `symbol`。
+
+## 40. What's the output?
+
+**答案: C**
+
+`[1, 2]`是初始值。初始值将会作为首次调用时第一个参数 `acc` 的值。在第一次执行时， `acc` 的值是 `[1, 2]`， `cur` 的值是 `[0, 1]`。合并它们，结果为 `[1, 2, 0, 1]`。
+第二次执行， `acc` 的值是 `[1, 2, 0, 1]`， `cur` 的值是 `[2, 3]`。合并它们，最终结果为 `[1, 2, 0, 1, 2, 3]`
