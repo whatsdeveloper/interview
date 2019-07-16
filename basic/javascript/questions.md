@@ -821,7 +821,7 @@ console.log(3 + 4 + '5');
 
 ## 49. What's the value of `num`?
 
-```javascript
+```js
 const num = parseInt('7*6', 10);
 ```
 
@@ -834,7 +834,7 @@ const num = parseInt('7*6', 10);
 
 ## 50. What's the output?
 
-```javascript
+```js
 [1, 2, 3].map(num => {
   if (typeof num === 'number') return;
   return num * 2;
@@ -847,3 +847,206 @@ const num = parseInt('7*6', 10);
 - D: `[ 3 x empty ]`
 
 [**Answer**](answers.md#50-whats-the-output)
+
+## 51. What's the output?
+
+```js
+function getInfo(member, year) {
+  member.name = 'Lydia';
+  year = '1998';
+}
+
+const person = { name: 'Sarah' };
+const birthYear = '1997';
+
+getInfo(person, birthYear);
+
+console.log(person, birthYear);
+```
+
+- A: `{ name: "Lydia" }, "1997"`
+- B: `{ name: "Sarah" }, "1998"`
+- C: `{ name: "Lydia" }, "1998"`
+- D: `{ name: "Sarah" }, "1997"`
+
+[**Answer**](answers.md#51-whats-the-output)
+
+## 52. What's the output?
+
+```js
+function greeting() {
+  throw 'Hello world!';
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log('It worked!', data);
+  } catch (e) {
+    console.log('Oh no an error!', e);
+  }
+}
+
+sayHi();
+```
+
+- A: `"It worked! Hello world!"`
+- B: `"Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `"Oh no an error: Hello world!`
+
+[**Answer**](answers.md#52-whats-the-output)
+
+## 53. What's the output?
+
+```js
+function Car() {
+  this.make = 'Lamborghini';
+  return { make: 'Maserati' };
+}
+
+const myCar = new Car();
+console.log(myCar.make);
+```
+
+- A: `"Lamborghini"`
+- B: `"Maserati"`
+- C: `ReferenceError`
+- D: `TypeError`
+
+[**Answer**](answers.md#53-whats-the-output)
+
+## 54. What's the output?
+
+```js
+(() => {
+  let x = (y = 10);
+})();
+
+console.log(typeof x);
+console.log(typeof y);
+```
+
+- A: `"undefined", "number"`
+- B: `"number", "number"`
+- C: `"object", "number"`
+- D: `"number", "undefined"`
+
+[**Answer**](answers.md#54-whats-the-output)
+
+## 55. What's the output?
+
+```js
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog('Mara');
+
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"`, `TypeError`
+- B: `"Woof I am Mara"`, `"Woof I am Mara"`
+- C: `"Woof I am Mara"`, `undefined`
+- D: `TypeError`, `TypeError`
+
+[**Answer**](answers.md#55-whats-the-output)
+
+## 56. What's the output?
+
+```js
+const set = new Set([1, 1, 2, 3, 4]);
+
+console.log(set);
+```
+
+- A: `[1, 1, 2, 3, 4]`
+- B: `[1, 2, 3, 4]`
+- C: `{1, 1, 2, 3, 4}`
+- D: `{1, 2, 3, 4}`
+
+[**Answer**](answers.md#56-whats-the-output)
+
+## 57. What's the output?
+
+```js
+// counter.js
+let counter = 10;
+export default counter;
+```
+
+```js
+// index.js
+import myCounter from './counter';
+
+myCounter += 1;
+
+console.log(myCounter);
+```
+
+- A: `10`
+- B: `11`
+- C: `Error`
+- D: `NaN`
+
+[**Answer**](answers.md#57-whats-the-output)
+
+## 58. What's the output?
+
+```js
+const name = 'Lydia';
+age = 21;
+
+console.log(delete name);
+console.log(delete age);
+```
+
+- A: `false`, `true`
+- B: `"Lydia"`, `21`
+- C: `true`, `true`
+- D: `undefined`, `undefined`
+
+[**Answer**](answers.md#58-whats-the-output)
+
+## 59. What's the output?
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+const [y] = numbers;
+
+console.log(y);
+```
+
+- A: `[[1, 2, 3, 4, 5]]`
+- B: `[1, 2, 3, 4, 5]`
+- C: `1`
+- D: `[1]`
+
+[**Answer**](answers.md#59-whats-the-output)
+
+## 60. What's the output?
+
+```js
+const user = { name: 'Lydia', age: 21 };
+const admin = { admin: true, ...user };
+
+console.log(admin);
+```
+
+- A: `{ admin: true, user: { name: "Lydia", age: 21 } }`
+- B: `{ admin: true, name: "Lydia", age: 21 }`
+- C: `{ admin: true, user: ["Lydia", 21] }`
+- D: `{ admin: true }`
+
+[**Answer**](answers.md#60-whats-the-output)
