@@ -326,7 +326,7 @@ checkAge({ age: 18 });
 
 ## 19. What's the output?
 
-```javascript
+```js
 function getAge(...args) {
   console.log(typeof args);
 }
@@ -343,7 +343,7 @@ getAge(21);
 
 ## 20. What's the output?
 
-```javascript
+```js
 function getAge() {
   'use strict';
   age = 21;
@@ -685,3 +685,165 @@ console.log(numbers);
 - D: `[1, 2, 6]`
 
 [**Answer**](answers.md#40-whats-the-output)
+
+## 41. What's the output?
+
+```js
+!!null;
+!!'';
+!!1;
+```
+
+- A: `false` `true` `false`
+- B: `false` `false` `true`
+- C: `false` `true` `true`
+- D: `true` `true` `false`
+
+[**Answer**](answers.md#41-whats-the-output)
+
+## 42. What does the `setInterval` method return in the browser?
+
+```js
+setInterval(() => console.log('Hi'), 1000);
+```
+
+- A: a unique id
+- B: the amount of milliseconds specified
+- C: the passed function
+- D: `undefined`
+
+[**Answer**](answers.md#42-what-does-the-setinterval-method-return-in-the-browser)
+
+## 43. What does this return?
+
+```js
+[...'Lydia'];
+```
+
+- A: `["L", "y", "d", "i", "a"]`
+- B: `["Lydia"]`
+- C: `[[], "Lydia"]`
+- D: `[["L", "y", "d", "i", "a"]]`
+
+[**Answer**](answers.md#43-what-does-this-return)
+
+## 44. What's the output?
+
+```js
+function* generator(i) {
+  yield i;
+  yield i * 2;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value);
+console.log(gen.next().value);
+```
+
+- A: `[0, 10], [10, 20]`
+- B: `20, 20`
+- C: `10, 20`
+- D: `0, 10 and 10, 20`
+
+[**Answer**](answers.md#44-whats-the-output)
+
+## 45. What does this return?
+
+```js
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, 'one');
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, 'two');
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+
+- A: `"one"`
+- B: `"two"`
+- C: `"two" "one"`
+- D: `"one" "two"`
+
+[**Answer**](answers.md#45-what-does-this-return)
+
+## 46. What's the output?
+
+```js
+let person = { name: 'Lydia' };
+const members = [person];
+person = null;
+
+console.log(members);
+```
+
+- A: `null`
+- B: `[null]`
+- C: `[{}]`
+- D: `[{ name: "Lydia" }]`
+
+[**Answer**](answers.md#46-whats-the-output)
+
+## 47. What's the output?
+
+```js
+const person = {
+  name: 'Lydia',
+  age: 21
+};
+
+for (const item in person) {
+  console.log(item);
+}
+```
+
+- A: `{ name: "Lydia" }, { age: 21 }`
+- B: `"name", "age"`
+- C: `"Lydia", 21`
+- D: `["name", "Lydia"], ["age", 21]`
+
+[**Answer**](answers.md#47-whats-the-output)
+
+## 48. What's the output?
+
+```js
+console.log(3 + 4 + '5');
+```
+
+- A: `"345"`
+- B: `"75"`
+- C: `12`
+- D: `"12"`
+
+[**Answer**](answers.md#48-whats-the-output)
+
+## 49. What's the value of `num`?
+
+```javascript
+const num = parseInt('7*6', 10);
+```
+
+- A: `42`
+- B: `"42"`
+- C: `7`
+- D: `NaN`
+
+[**Answer**](answers.md#49-whats-the-value-of-num)
+
+## 50. What's the output?
+
+```javascript
+[1, 2, 3].map(num => {
+  if (typeof num === 'number') return;
+  return num * 2;
+});
+```
+
+- A: `[]`
+- B: `[null, null, null]`
+- C: `[undefined, undefined, undefined]`
+- D: `[ 3 x empty ]`
+
+[**Answer**](answers.md#50-whats-the-output)
