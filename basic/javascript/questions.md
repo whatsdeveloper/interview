@@ -1,5 +1,7 @@
 # List of (Advanced) JavaScript Questions
 
+> Last update: **July 14th**
+
 ## 1. What's the output?
 
 ```js
@@ -1050,3 +1052,348 @@ console.log(admin);
 - D: `{ admin: true }`
 
 [**Answer**](answers.md#60-whats-the-output)
+
+## 61. What's the output?
+
+```js
+const person = { name: 'Lydia' };
+
+Object.defineProperty(person, 'age', { value: 21 });
+
+console.log(person);
+console.log(Object.keys(person));
+```
+
+- A: `{ name: "Lydia", age: 21 }`, `["name", "age"]`
+- B: `{ name: "Lydia", age: 21 }`, `["name"]`
+- C: `{ name: "Lydia"}`, `["name", "age"]`
+- D: `{ name: "Lydia"}`, `["age"]`
+
+[**Answer**](answers.md#61-whats-the-output)
+
+## 62. What's the output?
+
+```js
+const settings = {
+  username: 'lydiahallie',
+  level: 19,
+  health: 90
+};
+
+const data = JSON.stringify(settings, ['level', 'health']);
+console.log(data);
+```
+
+- A: `"{"level":19, "health":90}"`
+- B: `"{"username": "lydiahallie"}"`
+- C: `"["level", "health"]"`
+- D: `"{"username": "lydiahallie", "level":19, "health":90}"`
+
+[**Answer**](answers.md#62-whats-the-output)
+
+## 63. What's the output?
+
+```js
+let num = 10;
+
+const increaseNumber = () => num++;
+const increasePassedNumber = number => number++;
+
+const num1 = increaseNumber();
+const num2 = increasePassedNumber(num1);
+
+console.log(num1);
+console.log(num2);
+```
+
+- A: `10`, `10`
+- B: `10`, `11`
+- C: `11`, `11`
+- D: `11`, `12`
+
+[**Answer**](answers.md#63-whats-the-output)
+
+## 64. What's the output?
+
+```js
+const value = { number: 10 };
+
+const multiply = (x = { ...value }) => {
+  console.log((x.number *= 2));
+};
+
+multiply();
+multiply();
+multiply(value);
+multiply(value);
+```
+
+- A: `20`, `40`, `80`, `160`
+- B: `20`, `40`, `20`, `40`
+- C: `20`, `20`, `20`, `40`
+- D: `NaN`, `NaN`, `20`, `40`
+
+[**Answer**](answers.md#64-whats-the-output)
+
+## 65. What's the output?
+
+```js
+[1, 2, 3, 4].reduce((x, y) => console.log(x, y));
+```
+
+- A: `1` `2` and `3` `3` and `6` `4`
+- B: `1` `2` and `2` `3` and `3` `4`
+- C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
+- D: `1` `2` and `undefined` `3` and `undefined` `4`
+
+[**Answer**](answers.md#65-whats-the-output)
+
+## 66. With which constructor can we successfully extend the `Dog` class?
+
+```js
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class Labrador extends Dog {
+  // 1
+  constructor(name, size) {
+    this.size = size;
+  }
+  // 2
+  constructor(name, size) {
+    super(name);
+    this.size = size;
+  }
+  // 3
+  constructor(size) {
+    super(name);
+    this.size = size;
+  }
+  // 4
+  constructor(name, size) {
+    this.name = name;
+    this.size = size;
+  }
+
+};
+```
+
+- A: 1
+- B: 2
+- C: 3
+- D: 4
+
+[**Answer**](answers.md#66-with-which-constructor-can-we-successfully-extend-the-dog-class)
+
+## 67. What's the output?
+
+```js
+// index.js
+console.log('running index.js');
+import { sum } from './sum.js';
+console.log(sum(1, 2));
+
+// sum.js
+console.log('running sum.js');
+export const sum = (a, b) => a + b;
+```
+
+- A: `running index.js`, `running sum.js`, `3`
+- B: `running sum.js`, `running index.js`, `3`
+- C: `running sum.js`, `3`, `running index.js`
+- D: `running index.js`, `undefined`, `running sum.js`
+
+[**Answer**](answers.md#67-whats-the-output)
+
+## 68. What's the output?
+
+```js
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol('foo') === Symbol('foo'));
+```
+
+- A: `true`, `true`, `false`
+- B: `false`, `true`, `false`
+- C: `true`, `false`, `true`
+- D: `true`, `true`, `true`
+
+[**Answer**](answers.md#68-whats-the-output)
+
+## 69. What's the output?
+
+```js
+const name = 'Lydia Hallie';
+console.log(name.padStart(13));
+console.log(name.padStart(2));
+```
+
+- A: `"Lydia Hallie"`, `"Lydia Hallie"`
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
+- D: `"Lydia Hallie"`, `"Lyd"`,
+
+[**Answer**](answers.md#69-whats-the-output)
+
+## 70. What's the output?
+
+```js
+console.log('🥑' + '💻');
+```
+
+- A: `"🥑💻"`
+- B: `257548`
+- C: A string containing their code points
+- D: Error
+
+[**Answer**](answers.md#70-whats-the-output)
+
+## 71. How can we log the values that are commented out after the console.log statement?
+
+```js
+function* startGame() {
+  const answer = yield 'Do you love JavaScript?';
+  if (answer !== 'Yes') {
+    return "Oh wow... Guess we're gone here";
+  }
+  return 'JavaScript loves you back ❤️';
+}
+
+const game = startGame();
+console.log(/* 1 */); // Do you love JavaScript?
+console.log(/* 2 */); // JavaScript loves you back ❤️
+```
+
+- A: `game.next("Yes").value` and `game.next().value`
+- B: `game.next.value("Yes")` and `game.next.value()`
+- C: `game.next().value` and `game.next("Yes").value`
+- D: `game.next.value()` and `game.next.value("Yes")`
+
+[**Answer**](answers.md#71-how-can-we-log-the-values-that-are-commented-out-after-the-consolelog-statement)
+
+## 72. What's the output?
+
+```js
+console.log(String.raw`Hello\nworld`);
+```
+
+- A: `Hello world!`
+- B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
+- C: `Hello\nworld`
+- D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
+
+[**Answer**](answers.md#72-whats-the-output)
+
+## 73. What's the output?
+
+```js
+async function getData() {
+  return await Promise.resolve('I made it!');
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise {<resolved>: "I made it!"}`
+- C: `Promise {<pending>}`
+- D: `undefined`
+
+[**Answer**](answers.md#73-whats-the-output)
+
+## 74. What's the output?
+
+```js
+function addToList(item, list) {
+  return list.push(item);
+}
+
+const result = addToList('apple', ['banana']);
+console.log(result);
+```
+
+- A: `['apple', 'banana']`
+- B: `2`
+- C: `true`
+- D: `undefined`
+
+[**Answer**](answers.md#74-whats-the-output)
+
+## 75. What's the output?
+
+```js
+const box = { x: 10, y: 20 };
+
+Object.freeze(box);
+
+const shape = box;
+shape.x = 100;
+```
+
+- A: `{ x: 100, y: 20 }`
+- B: `{ x: 10, y: 20 }`
+- C: `{ x: 100 }`
+- D: `ReferenceError`
+
+[**Answer**](answers.md#75-whats-the-output)
+
+## 76. What's the output?
+
+```js
+const { name: myName } = { name: 'Lydia' };
+
+console.log(name);
+```
+
+- A: `"Lydia"`
+- B: `"myName"`
+- C: `undefined`
+- D: `ReferenceError`
+
+[**Answer**](answers.md#76-whats-the-output)
+
+## 77. Is this a pure function?
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+```
+
+- A: Yes
+- B: No
+
+[**Answer**](answers.md#77-is-this-a-pure-function)
+
+## 78. What is the output?
+
+```js
+const add = () => {
+  const cache = {};
+  return num => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+[**Answer**](answers.md#78-whats-the-output)
