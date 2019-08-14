@@ -1397,3 +1397,156 @@ console.log(addFunction(5 * 2));
 - D: `Calculated! 20` `From cache! 20` `Error`
 
 [**Answer**](answers.md#78-whats-the-output)
+
+## 79. What is the output?
+
+```js
+const myLifeSummedUp = ['☕', '💻', '🍷', '🍫'];
+
+for (let item in myLifeSummedUp) {
+  console.log(item);
+}
+
+for (let item of myLifeSummedUp) {
+  console.log(item);
+}
+```
+
+- A: `0` `1` `2` `3` and `"☕"` `"💻"` `"🍷"` `"🍫"`
+- B: `"☕"` `"💻"` `"🍷"` `"🍫"` and `"☕"` `"💻"` `"🍷"` `"🍫"`
+- C: `"☕"` `"💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
+- D: `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+
+[**Answer**](answers.md#79-whats-the-output)
+
+## 80. What is the output?
+
+```js
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `["12", 2, 0.5]`
+- C: `[3, 2, 0.5]`
+- D: `[1, 1, 1]`
+
+[**Answer**](answers.md#80-whats-the-output)
+
+## 81. What is the output?
+
+```js
+function sayHi(name) {
+  return `Hi there, ${name}`;
+}
+
+console.log(sayHi());
+```
+
+- A: `Hi there,`
+- B: `Hi there, undefined`
+- C: `Hi there, null`
+- D: `ReferenceError`
+
+[**Answer**](answers.md#81-whats-the-output)
+
+## 82. What is the output?
+
+```js
+var status = '😎';
+
+setTimeout(() => {
+  const status = '😍';
+
+  const data = {
+    status: '🥑',
+    getStatus() {
+      return this.status;
+    }
+  };
+
+  console.log(data.getStatus());
+  console.log(data.getStatus.call(this));
+}, 0);
+```
+
+- A: `"🥑"` and `"😍"`
+- B: `"🥑"` and `"😎"`
+- C: `"😍"` and `"😎"`
+- D: `"😎"` and `"😎"`
+
+[**Answer**](answers.md#82-whats-the-output)
+
+## 83. What is the output?
+
+```js
+const person = {
+  name: 'Lydia',
+  age: 21
+};
+
+let city = person.city;
+city = 'Amsterdam';
+
+console.log(person);
+```
+
+- A: `{ name: "Lydia", age: 21 }`
+- B: `{ name: "Lydia", age: 21, city: "Amsterdam" }`
+- C: `{ name: "Lydia", age: 21, city: undefined }`
+- D: `"Amsterdam"`
+
+[**Answer**](answers.md#83-whats-the-output)
+
+## 84. What is the output?
+
+```js
+function checkAge(age) {
+  if (age < 18) {
+    const message = "Sorry, you're too young.";
+  } else {
+    const message = "Yay! You're old enough!";
+  }
+
+  return message;
+}
+
+console.log(checkAge(21));
+```
+
+- A: `"Sorry, you're too young."`
+- B: `"Yay! You're old enough!"`
+- C: `ReferenceError`
+- D: `undefined`
+
+[**Answer**](answers.md#84-whats-the-output)
+
+## 85. What kind of information would get logged?
+
+```js
+fetch('https://www.website.com/api/user/1')
+  .then(res => res.json())
+  .then(res => console.log(res));
+```
+
+- A: The result of the `fetch` method.
+- B: The result of the second invocation of the `fetch` method.
+- C: The result of the callback in the previous `.then()`.
+- D: It would always be undefined.
+
+[**Answer**](answers.md#85-what-kind-of-information-would-get-logged)
+
+## 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+
+```js
+function getName(name) {
+  const hasName = //
+}
+```
+
+- A: `!!name`
+- B: `name`
+- C: `new Boolean(name)`
+- D: `name.length`
+
+[**Answer**](answers.md#86-which-option-is-a-way-to-set-hasname-equal-to-true-provided-you-cannot-pass-true-as-an-argument)
