@@ -818,3 +818,169 @@ String.raw`C:\Documents\Projects\table.html`;
 `new Boolean（true）`返回一个对象包装器，而不是布尔值本身。
 
 `name.length`返回传递的参数的长度，而不是布尔值`true`。
+
+## 87. What's the output?
+
+**答案: B**
+
+可以使用方括号表示法获取字符串中特定索引的字符，字符串中的第一个字符具有索引 0，依此类推。 在这种情况下，我们想要得到索引为 0 的元素，字符`'I'`被记录。
+
+请注意，IE7 及更低版本不支持此方法。 在这种情况下，应该使用`.charAt()`
+
+## 88. What's the output?
+
+**答案: B**
+
+您可以将默认参数的值设置为函数的另一个参数，只要另一个参数定义在其之前即可。 我们将值`10`传递给`sum`函数。 如果`sum`函数只接收 1 个参数，则意味着没有传递`num2`的值，这种情况下，`num1`的值等于传递的值`10`。 `num2`的默认值是`num1`的值，即`10`。 `num1 + num2`返回`20`。
+
+如果您尝试将默认参数的值设置为后面定义的参数，则可能导致参数的值尚未初始化，从而引发错误。比如：
+
+```js
+function test(m = n, n = 2) {
+  console.log(m, n);
+}
+test(); // Uncaught ReferenceError: Cannot access 'n' before initialization
+test(3); // 3 2
+test(3, 4); // 3 4
+```
+
+## 89. What's the output?
+
+**答案: A**
+
+使用`import * as name`语法，我们将`module.js`文件中所有`export`导入到`index.js`文件中，并且创建了一个名为`data`的新对象。 在`module.js`文件中，有两个导出：默认导出和命名导出。 默认导出是一个返回字符串“Hello World”的函数，命名导出是一个名为`name`的变量，其值为字符串`“Lydia”`。
+
+`data`对象具有默认导出的`default`属性，其他属性具有指定 exports 的名称及其对应的值。
+
+## 90. What's the output?
+
+**答案: C**
+
+类是构造函数的语法糖，如果用构造函数的方式来重写`Person`类则将是：
+
+```js
+function Person() {
+  this.name = name;
+}
+```
+
+通过`new`来调用构造函数，将会生成构造函数`Person`的实例，对实例执行`typeof`关键字将返回`"object"`，上述情况打印出`"object"`。
+
+## 91. What's the output?
+
+**答案: D**
+
+`.push`方法返回数组的长度，而不是数组本身！ 通过将`newList`设置为`[1,2,3].push(4)`，实际上`newList`等于数组的新长度：`4`。
+
+然后，尝试在`newList`上使用`.push`方法。 由于`newList`是数值`4`，抛出 TypeError。
+
+## 92. What's the output?
+
+**答案: D**
+
+常规函数，例如`giveLydiaPizza`函数，有一个`prototype`属性，它是一个带有`constructor`属性的对象（原型对象）。 然而，箭头函数，例如`giveLydiaChocolate`函数，没有这个`prototype`属性。 尝试使用`giveLydiaChocolate.prototype`访问`prototype`属性时会返回`undefined`。
+
+## 93. What's the output?
+
+**答案: A**
+
+`Object.entries()`方法返回一个给定对象自身可枚举属性的键值对数组，上述情况返回一个二维数组，数组每个元素是一个包含键和值的数组：
+
+`[['name'，'Lydia']，['age'，21]]`
+
+使用`for-of`循环，我们可以迭代数组中的每个元素，上述情况是子数组。 我们可以使用`const [x，y]`在`for-of`循环中解构子数组。 `x`等于子数组中的第一个元素，`y`等于子数组中的第二个元素。
+
+第一个子阵列是`[“name”，“Lydia”]`，其中`x`等于`name`，而`y`等于`Lydia`。
+第二个子阵列是`[“age”，21]`，其中`x`等于`age`，而`y`等于`21`。
+
+## 94. What's the output?
+
+**答案: D**
+
+`...args`是剩余参数，剩余参数的值是一个包含所有剩余参数的数组，**并且只能作为最后一个参数**。上述示例中，剩余参数是第二个参数，这是不可能的，并会抛出语法错误。
+
+```js
+function getItems(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit];
+}
+
+getItems(['banana', 'apple'], 'pear', 'orange');
+```
+
+上述例子是有效的，将会返回数组：`[ 'banana', 'apple', 'orange', 'pear' ]`
+
+## 95. What's the output?
+
+**答案: B**
+
+在 JavaScript 中，我们不必显式地编写分号(`;`)，但是 JavaScript 引擎仍然在语句之后自动添加分号。这称为**自动分号插入**。例如，一个语句可以是变量，或者像`throw`、`return`、`break`这样的关键字。
+
+在这里，我们在新的一行上写了一个`return`语句和另一个值`a + b`。然而，由于它是一个新行，引擎并不知道它实际上是我们想要返回的值。相反，它会在`return`后面自动添加分号。你可以这样看:
+
+```js
+return;
+a + b;
+```
+
+这意味着永远不会到达`a + b`，因为函数在`return`关键字之后停止运行。如果没有返回值，就像这里，函数返回`undefined`。注意，在`if/else`语句之后没有自动插入!
+
+## 96. What's the output?
+
+**答案: B**
+
+我们可以将类设置为等于其他类/函数构造函数。 在这种情况下，我们将`Person`设置为`AnotherPerson`。 这个构造函数的名字是`Sarah`，所以新的`Person`实例`member`上的 name 属性是`Sarah`。
+
+## 97. What's the output?
+
+**答案: D**
+
+`Symbol`类型是不可枚举的。`Object.keys`方法返回对象上的所有可枚举的键属性。`Symbol`类型是不可见的，并返回一个空数组。 记录整个对象时，所有属性都是可见的，甚至是不可枚举的属性。
+
+这是`Symbol`的众多特性之一：除了表示完全唯一的值（防止对象意外名称冲突，例如当使用 2 个想要向同一对象添加属性的库时），您还可以`隐藏`这种方式对象的属性（尽管不完全。你仍然可以使用`Object.getOwnPropertySymbols()`方法访问 `Symbol`。
+
+## 98. What's the output?
+
+**答案: A**
+
+`getList`函数接收一个数组作为其参数。 在`getList`函数的括号之间，我们立即解构这个数组。 您可以将其视为：
+
+`[x, ...y] = [1, 2, 3, 4]`
+
+使用剩余的参数`... y`，我们将所有剩余参数放在一个数组中。 在这种情况下，其余的参数是`2`，`3`和`4`。 `y`的值是一个数组，包含所有其余参数。 在这种情况下，`x`的值等于`1`，所以当我们打印`[x，y]`时，会打印`[1，[2,3,4]]`。
+
+`getUser`函数接收一个对象。对于箭头函数，如果只返回一个值，我们不必编写花括号。但是，如果您想从一个箭头函数返回一个对象，您必须在圆括号之间编写它，否则不会返回任何值！下面的函数将返回一个对象：
+
+`const getUser = user => ({ name: user.name, age: user.age })`
+
+由于在这种情况下不返回任何值，因此该函数返回`undefined`。
+
+## 99. What's the output?
+
+**答案: C**
+
+变量`name`保存字符串的值，该字符串不是函数，因此无法调用。
+
+当值不是预期类型时，会抛出`TypeErrors`。 JavaScript 期望`name`是一个函数，因为我们试图调用它。 但它是一个字符串，因此抛出`TypeError`：`name is not a function`
+
+当你编写了一些非有效的 JavaScript 时，会抛出语法错误，例如当你把`return`这个词写成`retrun`时。
+当 JavaScript 无法找到您尝试访问的值的引用时，抛出`ReferenceErrors`。
+
+## 100. What's the value of output?
+
+**答案: B**
+
+`[]`是一个真值。 使用`&&`运算符，如果左侧值是真值，则返回右侧值。 在这种情况下，左侧值`[]`是一个真值，所以返回`Im`。
+
+`""`是一个假值。 如果左侧值是假的，则不返回任何内容。 `n't`不会被退回。
+
+## 101. What's the value of output?
+
+**答案: C**
+
+使用`||`运算符，我们可以返回第一个真值。 如果所有值都是假值，则返回最后一个值。
+
+`（false || {} || null）`：空对象`{}`是一个真值。 这是第一个（也是唯一的）真值，它将被返回。`one`等于`{}`。
+
+`（null || false ||“”）`：所有值都是假值。 这意味着返回传递的值`""`。 `two`等于`""`。
+
+`（[] || 0 ||“”）`：空数组`[]`是一个真值。 这是第一个返回的真值。 `three`等于`[]`。

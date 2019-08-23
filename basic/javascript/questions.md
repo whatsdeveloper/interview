@@ -1550,3 +1550,279 @@ function getName(name) {
 - D: `name.length`
 
 [**Answer**](answers.md#86-which-option-is-a-way-to-set-hasname-equal-to-true-provided-you-cannot-pass-true-as-an-argument)
+
+## 87. What's the output?
+
+```js
+console.log('I want pizza'[0]);
+```
+
+- A: `"""`
+- B: `"I"`
+- C: `SyntaxError`
+- D: `undefined`
+
+[**Answer**](answers.md#87-whats-the-output)
+
+## 88. What's the output?
+
+```js
+function sum(num1, num2 = num1) {
+  console.log(num1 + num2);
+}
+
+sum(10);
+```
+
+- A: `NaN`
+- B: `20`
+- C: `ReferenceError`
+- D: `undefined`
+
+[**Answer**](answers.md#88-whats-the-output)
+
+## 89. What's the output?
+
+```js
+// module.js
+export default () => 'Hello world';
+export const name = 'Lydia';
+
+// index.js
+import * as data from './module';
+
+console.log(data);
+```
+
+- A: `{ default: function default(), name: "Lydia" }`
+- B: `{ default: function default() }`
+- C: `{ default: "Hello world", name: "Lydia" }`
+- D: Global object of `module.js`
+
+[**Answer**](answers.md#89-whats-the-output)
+
+## 90. What's the output?
+
+```js
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+const member = new Person('John');
+console.log(typeof member);
+```
+
+- A: `"class"`
+- B: `"function"`
+- C: `"object"`
+- D: `"string"`
+
+[**Answer**](answers.md#90-whats-the-output)
+
+## 91. What's the output?
+
+```js
+let newList = [1, 2, 3].push(4);
+
+console.log(newList.push(5));
+```
+
+- A: `[1, 2, 3, 4, 5]`
+- B: `[1, 2, 3, 5]`
+- C: `[1, 2, 3, 4]`
+- D: `Error`
+
+[**Answer**](answers.md#91-whats-the-output)
+
+## 92. What's the output?
+
+```js
+function giveLydiaPizza() {
+  return 'Here is pizza!';
+}
+
+const giveLydiaChocolate = () =>
+  "Here's chocolate... now go hit the gym already.";
+
+console.log(giveLydiaPizza.prototype);
+console.log(giveLydiaChocolate.prototype);
+```
+
+- A: `{ constructor: ...}` `{ constructor: ...}`
+- B: `{}` `{ constructor: ...}`
+- C: `{ constructor: ...}` `{}`
+- D: `{ constructor: ...}` `undefined`
+
+[**Answer**](answers.md#92-whats-the-output)
+
+## 93. What's the output?
+
+```js
+const person = {
+  name: 'Lydia',
+  age: 21
+};
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y);
+}
+```
+
+- A: `name` `Lydia` and `age` `21`
+- B: `["name", "Lydia"]` and `["age", 21]`
+- C: `["name", "age"]` and `undefined`
+- D: `Error`
+
+[**Answer**](answers.md#93-whats-the-output)
+
+## 94. What's the output?
+
+```js
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit]
+}
+
+getItems(["banana", "apple"], "pear", "orange")
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]`
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+[**Answer**](answers.md#94-whats-the-output)
+
+## 95. What's the output?
+
+```js
+function nums(a, b) {
+  if (a > b) console.log('a is bigger');
+  else console.log('b is bigger');
+  return;
+  a + b;
+}
+
+console.log(nums(4, 2));
+console.log(nums(1, 2));
+```
+
+- A: `a is bigger`, `6` and `b is bigger`, `3`
+- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`
+- C: `undefined` and `undefined`
+- D: `SyntaxError`
+
+[**Answer**](answers.md#95-whats-the-output)
+
+## 96. What's the output?
+
+```js
+class Person {
+  constructor() {
+    this.name = 'Lydia';
+  }
+}
+
+Person = class AnotherPerson {
+  constructor() {
+    this.name = 'Sarah';
+  }
+};
+
+const member = new Person();
+console.log(member.name);
+```
+
+- A: `"Lydia"`
+- B: `"Sarah"`
+- C: `Error: cannot redeclare Person`
+- D: `SyntaxError`
+
+[**Answer**](answers.md#96-whats-the-output)
+
+## 97. What's the output?
+
+```js
+const info = {
+  [Symbol('a')]: 'b'
+};
+
+console.log(info);
+console.log(Object.keys(info));
+```
+
+- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
+- B: `{}` and `[]`
+- C: `{ a: "b" }` and `["a"]`
+- D: `{Symbol('a'): 'b'}` and `[]`
+
+[**Answer**](answers.md#97-whats-the-output)
+
+## 98. What's the output?
+
+```js
+const getList = ([x, ...y]) => [x, y]
+const getUser = user => { name: user.name, age: user.age }
+
+const list = [1, 2, 3, 4]
+const user = { name: "Lydia", age: 21 }
+
+console.log(getList(list))
+console.log(getUser(user))
+```
+
+- A: `[1, [2, 3, 4]]` and `undefined`
+- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
+- D: `Error` and `{ name: "Lydia", age: 21 }`
+
+[**Answer**](answers.md#98-whats-the-output)
+
+## 99. What's the output?
+
+```js
+const name = 'Lydia';
+
+console.log(name());
+```
+
+- A: `SyntaxError`
+- B: `ReferenceError`
+- C: `TypeError`
+- D: `undefined`
+
+[**Answer**](answers.md#99-whats-the-output)
+
+## 100. What's the value of output?
+
+```js
+// 🎉✨ This is my 100th question! ✨🎉
+
+const output = `${[] && 'Im'}possible!
+You should${'' && `n't`} see a therapist after so much JavaScript lol`;
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+[**Answer**](answers.md#100-whats-the-value-of-output)
+
+## 101. What's the value of output?
+
+```js
+const one = false || {} || null;
+const two = null || false || '';
+const three = [] || 0 || true;
+
+console.log(one, two, three);
+```
+
+- A: `false` `null` `[]`
+- B: `null` `""` `true`
+- C: `{}` `""` `[]`
+- D: `null` `null` `true`
+
+[**Answer**](answers.md#101-whats-the-value-of-output)
